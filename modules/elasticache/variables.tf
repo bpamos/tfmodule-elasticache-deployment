@@ -1,65 +1,32 @@
-#### Provider variables
-variable "region" {
-    description = "AWS region"
+
+######## From previous modules
+#### VPC
+variable "vpc_cidr" {
+    description = "vpc-cidr"
 }
 
-
-variable "aws_creds" {
-    description = "Access key and Secret key for AWS [Access Keys, Secret Key]"
+variable "vpc_id" {
+  description = "The ID of the VPC"
 }
 
-#### Important variables
-variable "ssh_key_name" {
-    description = "name of ssh key to be added to instance"
+variable "vpc_name" {
+  description = "The VPC Project Name tag"
 }
 
-variable "ssh_key_path" {
-    description = "name of ssh key to be added to instance"
+variable "vpc_subnets_ids" {
+  type        = list(any)
+  description = "The list of subnets available to the VPC"
 }
+
+############
 
 variable "owner" {
     description = "owner tag name"
 }
 
-#### VPC
 variable "prefix_name" {
     description = "base name for resources (prefix name)"
-    default = "redisuser1-tf"
 }
-
-variable "vpc_cidr" {
-    description = "vpc-cidr"
-    default = "10.0.0.0/16"
-}
-
-#### Declare the list of subnet CIDR blocks
-variable "subnet_cidr_blocks" {
-    type = list(string)
-    description = "subnet_cidr_block"
-    default = ["10.0.1.0/24","10.0.2.0/24","10.0.3.0/24"]
-}
-
-
-#### Declare the list of availability zones
-variable "subnet_azs" {
-  type = list(string)
-  default = ["us-west-2a","us-west-2b","us-west-2c"]
-}
-
-
-
-#### Test Instance Variables
-variable "test-node-count" {
-  description = "number of data nodes"
-  default     = 1
-}
-
-variable "test_instance_type" {
-    description = "instance type to use. Default: t3.micro"
-    default = "t3.micro"
-}
-
-
 
 
 #### Security
