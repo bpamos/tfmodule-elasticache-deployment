@@ -61,6 +61,49 @@ variable "test_instance_type" {
 
 
 
+########### ElastiCache Variables
+variable "create_standalone_ec" {
+    description = "create this, (yes=1 or no=0)"
+    default = 1
+}
+
+variable "create_single_shard_cluster_mode_disabled_ec" {
+    description = "create this, (yes=1 or no=0)"
+    default = 1
+}
+
+variable "create_multi_shard_cluster_mode_enabled_ec" {
+    description = "create this, (yes=1 or no=0)"
+    default = 1
+}
+
+variable "cache_node_type" {
+    description = ""
+    default = "cache.t2.micro"
+}
+
+variable "num_cache_nodes_standalone_no_replica" {
+    description = ""
+    default = 1
+}
+
+variable "num_cache_nodes_cluster_mode_disabled_with_replica" {
+    description = ""
+    default = 2
+}
+
+variable "num_node_groups_cluster_mode_enabled" {
+    description = ""
+    default = 2
+}
+
+
+variable "replicas_per_node_group_cluster_mode_enabled" {
+    description = ""
+    default = 2
+}
+
+
 
 #### Security
 # variable "open-nets" {
