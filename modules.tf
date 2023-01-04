@@ -51,6 +51,14 @@ module "elasticache" {
     vpc_name           = module.vpc.vpc-name
     vpc_subnets_ids    = module.vpc.subnet-ids
     vpc_id             = module.vpc.vpc-id
+    create_standalone_ec = var.create_standalone_ec
+    create_single_shard_cluster_mode_disabled_ec = var.create_single_shard_cluster_mode_disabled_ec
+    create_multi_shard_cluster_mode_enabled_ec = var.create_multi_shard_cluster_mode_enabled_ec
+    cache_node_type = var.cache_node_type
+    num_cache_nodes_standalone_no_replica = var.num_cache_nodes_standalone_no_replica
+    num_cache_nodes_cluster_mode_disabled_with_replica = var.num_cache_nodes_cluster_mode_disabled_with_replica
+    num_node_groups_cluster_mode_enabled = var.num_node_groups_cluster_mode_enabled
+    replicas_per_node_group_cluster_mode_enabled = var.replicas_per_node_group_cluster_mode_enabled
 
     depends_on = [module.vpc]
 }
